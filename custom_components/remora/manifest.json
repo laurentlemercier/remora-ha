@@ -2,7 +2,7 @@
     "domain": "remora",
     "name": "Remora - Gestionnaire Fil Pilot",
     "documentation": "https://github.com/FreeTHX/remora-ha/blob/master/README.md",
-    "dependencies": [ "climate", "climate_group"],
+    "dependencies": [ "climate" ],
     "version": "0.5",
     "codeowners": ["@FreeTHX"],
     "requirements": ["pyremora>=0.5"],
