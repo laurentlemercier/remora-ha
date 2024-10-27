@@ -29,7 +29,7 @@ class RemoraDevice:
     async def async_check_HeartBeat(self) -> bool:
         """Get the status from Remora."""
         return await self._remora.getHeartBeat()
-    
+
     @property
     def TeleInfo(self) -> dict:
         """Return TeleInfo."""
@@ -38,7 +38,7 @@ class RemoraDevice:
 
     async def async_get_TeleInfo(self) -> dict:
         """Get the status from Remora TeleInfo and return it as a dict."""
-        return await self._remora.getTeleInfo()
+        return await self._remora.getTeleInfo()!==None
 
     @Throttle(MIN_TIME_BETWEEN_UPDATES_REMORA_SENSOR)
     async def async_updateTeleInfo(self, **kwargs) -> None:
