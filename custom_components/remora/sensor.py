@@ -61,102 +61,102 @@ SENSOR_TYPES: dict[str, dict[str, str]] = {
         ICON: "mdi:mdi-flash-outline",
         DEVICE_CLASS: SensorDeviceClass.CURRENT,
         # UNIT: UnitOfElectricCurrent.AMPERE
-        UNIT: ELECTRIC_CURRENT_AMPERE,
+        UNIT: UnitOfElectricCurrent.AMPERE,
     },
     "BASE": {
         DESCRIPTION: "Index option Base",
         ICON: "mdi:gauge",
         DEVICE_CLASS: SensorDeviceClass.ENERGY,
         STATE_CLASS: SensorStateClass.TOTAL,
-        # UNIT: UnitOfEnergy.WATT_HOUR
-        UNIT: ENERGY_WATT_HOUR,
+        UNIT: UnitOfEnergy.WATT_HOUR,
+        # UNIT: ENERGY_WATT_HOUR,
     },
     "HCHC": {
         DESCRIPTION: "Index option Heures Creuses",
         ICON: "mdi:gauge",
         DEVICE_CLASS: SensorDeviceClass.ENERGY,
         STATE_CLASS: SensorStateClass.TOTAL,
-        # UNIT: UnitOfEnergy.WATT_HOUR
-        UNIT: ENERGY_WATT_HOUR,
+        UNIT: UnitOfEnergy.WATT_HOUR,
+        # UNIT: ENERGY_WATT_HOUR,
     },
     "HCHP": {
         DESCRIPTION: "Index option Heures Pleines",
         ICON: "mdi:gauge",
         DEVICE_CLASS: SensorDeviceClass.ENERGY,
         STATE_CLASS: SensorStateClass.TOTAL,
-        # UNIT: UnitOfEnergy.WATT_HOUR
-        UNIT: ENERGY_WATT_HOUR,
+        UNIT: UnitOfEnergy.WATT_HOUR,
+        # UNIT: ENERGY_WATT_HOUR,
     },
     "EJPHN": {
         DESCRIPTION: "Index option Heures Normales",
         ICON: "mdi:gauge",
         DEVICE_CLASS: SensorDeviceClass.ENERGY,
         STATE_CLASS: SensorStateClass.TOTAL,
-        # UNIT: UnitOfEnergy.WATT_HOUR
-        UNIT: ENERGY_WATT_HOUR,
+        UNIT: UnitOfEnergy.WATT_HOUR,
+        # UNIT: ENERGY_WATT_HOUR,
     },
     "EJPHPM": {
         DESCRIPTION: "Index option Heures de Pointe Mobile",
         ICON: "mdi:gauge",
         DEVICE_CLASS: SensorDeviceClass.ENERGY,
         STATE_CLASS: SensorStateClass.TOTAL,
-        # UNIT: UnitOfEnergy.WATT_HOUR
-        UNIT: ENERGY_WATT_HOUR,
+        UNIT: UnitOfEnergy.WATT_HOUR,
+        # UNIT: ENERGY_WATT_HOUR,
     },
     "BBRHCJB": {
         DESCRIPTION: "Index option Heures Creuses Jours Bleus",
         ICON: "mdi:gauge",
         DEVICE_CLASS: SensorDeviceClass.ENERGY,
         STATE_CLASS: SensorStateClass.TOTAL,
-        # UNIT: UnitOfEnergy.WATT_HOUR
-        UNIT: ENERGY_WATT_HOUR,
+        UNIT: UnitOfEnergy.WATT_HOUR,
+        # UNIT: ENERGY_WATT_HOUR,
     },
     "BBRHPJB": {
         DESCRIPTION: "Index option Heures Pleines Jours Bleus",
         ICON: "mdi:gauge",
         DEVICE_CLASS: SensorDeviceClass.ENERGY,
         STATE_CLASS: SensorStateClass.TOTAL,
-        # UNIT: UnitOfEnergy.WATT_HOUR
-        UNIT: ENERGY_WATT_HOUR,
+        UNIT: UnitOfEnergy.WATT_HOUR,
+        # UNIT: ENERGY_WATT_HOUR,
     },
     "BBRHCJW": {
         DESCRIPTION: "Index option Heures Creuses Jours Blancs",
         ICON: "mdi:gauge",
         DEVICE_CLASS: SensorDeviceClass.ENERGY,
         STATE_CLASS: SensorStateClass.TOTAL,
-        # UNIT: UnitOfEnergy.WATT_HOUR
-        UNIT: ENERGY_WATT_HOUR,
+        UNIT: UnitOfEnergy.WATT_HOUR,
+        # UNIT: ENERGY_WATT_HOUR,
     },
     "BBRHPJW": {
         DESCRIPTION: "Index option Heures Pleines Jours Blancs",
         ICON: "mdi:gauge",
         DEVICE_CLASS: SensorDeviceClass.ENERGY,
         STATE_CLASS: SensorStateClass.TOTAL,
-        # UNIT: UnitOfEnergy.WATT_HOUR
-        UNIT: ENERGY_WATT_HOUR,
+        UNIT: UnitOfEnergy.WATT_HOUR,
+        # UNIT: ENERGY_WATT_HOUR,
     },
     "BBRHCJR": {
         DESCRIPTION: "Index option Heures Creuses Jours Rouges",
         ICON: "mdi:gauge",
         DEVICE_CLASS: SensorDeviceClass.ENERGY,
         STATE_CLASS: SensorStateClass.TOTAL,
-        # UNIT: UnitOfEnergy.WATT_HOUR
-        UNIT: ENERGY_WATT_HOUR,
+        UNIT: UnitOfEnergy.WATT_HOUR,
+        # UNIT: ENERGY_WATT_HOUR,
     },
     "BBRHPJR": {
         DESCRIPTION: "Index option Heures Pleines Jours Rouges",
         ICON: "mdi:gauge",
         DEVICE_CLASS: SensorDeviceClass.ENERGY,
         STATE_CLASS: SensorStateClass.TOTAL,
-        # UNIT: UnitOfEnergy.WATT_HOUR
-        UNIT: ENERGY_WATT_HOUR,
+        UNIT: UnitOfEnergy.WATT_HOUR,
+        # UNIT: ENERGY_WATT_HOUR,
     },
     "PEJP": {
         DESCRIPTION: "Préavis Début EJP (30 min)",
         ICON: "mdi:counter",
         DEVICE_CLASS: SensorDeviceClass.DURATION,
-        # UNIT: UnitOfTime.MINUTES
-        UNIT: TIME_MINUTES,
+        UNIT: UnitOfTime.MINUTES,
+        # UNIT: TIME_MINUTES,
     },
     "PTEC": {DESCRIPTION: "Période Tarifaire en cours", ICON: "mdi:chart-timeline"},
     "DEMAIN": {DESCRIPTION: "Couleur du lendemain", ICON: "mdi:counter"},
@@ -165,30 +165,30 @@ SENSOR_TYPES: dict[str, dict[str, str]] = {
         ICON: "mdi:flash",
         DEVICE_CLASS: SensorDeviceClass.CURRENT,
         STATE_CLASS: SensorStateClass.MEASUREMENT,
-        # UNIT: UnitOfElectricCurrent.AMPERE
-        UNIT: ELECTRIC_CURRENT_AMPERE,
+        UNIT: UnitOfElectricCurrent.AMPERE,
+        # UNIT: ELECTRIC_CURRENT_AMPERE,
     },
     "ADPS": {
         DESCRIPTION: "Avertissement de Dépassement De Puissance Souscrite",
         ICON: "mdi:mdi-flash-red-eye",
         DEVICE_CLASS: SensorDeviceClass.CURRENT,
-        # UNIT: UnitOfElectricCurrent.AMPERE
-        UNIT: ELECTRIC_CURRENT_AMPERE,
+        UNIT: UnitOfElectricCurrent.AMPERE,
+        # UNIT: ELECTRIC_CURRENT_AMPERE,
     },
     "IMAX": {
         DESCRIPTION: "Intensité maximale",
         ICON: "mdi:mdi-flash-red-eye",
         DEVICE_CLASS: SensorDeviceClass.CURRENT,
-        # UNIT: UnitOfElectricCurrent.AMPERE
-        UNIT: ELECTRIC_CURRENT_AMPERE,
+        UNIT: UnitOfElectricCurrent.AMPERE,
+        # UNIT: ELECTRIC_CURRENT_AMPERE,
     },
     "PAPP": {
         DESCRIPTION: "Puissance apparente",
         ICON: "mdi:flash",
         DEVICE_CLASS: SensorDeviceClass.APPARENT_POWER,
         STATE_CLASS: SensorStateClass.MEASUREMENT,
-        # UNIT: UnitOfApparentPower.VOLT_AMPERE
-        UNIT: POWER_VOLT_AMPERE,
+        UNIT: UnitOfApparentPower.VOLT_AMPERE,
+        # UNIT: POWER_VOLT_AMPERE,
     },
     "HHPHC": {
         DESCRIPTION: "Horaire Heures Pleines Heures Creuses",

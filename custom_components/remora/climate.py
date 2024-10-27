@@ -161,7 +161,7 @@ class RemoraFilPiloteClimate(ClimateEntity):
     @property
     def temperature_unit(self) -> str:
         """Return the unit of measurement."""
-        return TEMP_CELSIUS
+        return UnitOfTemperature.CELSIUS
 
     @property
     def supported_features(self) -> int:
@@ -228,12 +228,13 @@ class RemoraRelaisClimate(ClimateEntity):
     @property
     def temperature_unit(self) -> str:
         """Return the unit of measurement."""
-        return TEMP_CELSIUS
+        return UnitOfTemperature.CELSIUS
 
     @property
     def supported_features(self) -> int:
         """Return the list of supported features."""
-        return SUPPORT_PRESET_MODE
+        return ClimateEntityFeature.PRESET_MODE
+
 
     async def async_set_hvac_mode(self, hvac_mode) -> None:
         eMode = [
