@@ -1,5 +1,8 @@
 """Constants used by the Remora component."""
+
 DOMAIN = "remora"
+PLATFORM: list[Platform] = []
+
 FILPILOTE = "filpilote"
 FP = "fp"
 RELAIS = "relais"
