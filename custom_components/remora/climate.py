@@ -168,7 +168,7 @@ class RemoraFilPiloteClimate(ClimateEntity):
     @property
     def supported_features(self) -> int:
         """Return the list of supported features."""
-        return SUPPORT_PRESET_MODE
+        return ClimateEntityFeature.PRESET_MODE
 
     async def async_set_hvac_mode(self, hvac_mode) -> None:
         """Set new target hvac mode."""
