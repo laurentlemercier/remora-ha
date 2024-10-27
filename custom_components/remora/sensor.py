@@ -173,7 +173,7 @@ SENSOR_TYPES: dict[str, dict[str, str]] = {
         ICON: "mdi:mdi-flash-red-eye",
         DEVICE_CLASS: SensorDeviceClass.CURRENT,
         # UNIT: UnitOfElectricCurrent.AMPERE,
-        UNIT: UnitOfApparentPower.VOLT_AMPERE,
+        UNIT: UnitOfElectricCurrent.AMPERE,
         # UNIT: ELECTRIC_CURRENT_AMPERE,
     },
     "IMAX": {
@@ -195,6 +195,7 @@ SENSOR_TYPES: dict[str, dict[str, str]] = {
         DESCRIPTION: "Horaire Heures Pleines Heures Creuses",
         ICON: "mdi:counter",
     },
+    "MOTDETAT": {DESCRIPTION: "Mot d'etat du compteur", ICON: "mdi:counter"},
 }
 
 

@@ -13,7 +13,21 @@ FNCT_RELAIS = "fnct_relais"
 CONF_TEMP_SENSOR = "temp_sensor"
 SERVICE_RESET = "reset"
 
-NUL_TELEINFO = {"_UPTIME": 0, "PAPP": 0}
+# NUL_TELEINFO = {"_UPTIME": 0, "PAPP": 0}
+NUL_TELEINFO = {
+    "_UPTIME": 1614,
+    "ADCO": 31428067147,
+    "OPTARIF": "HC..",
+    "ISOUSC": 15,
+    "HCHC": 410994,
+    "HCHP": 0,
+    "PTEC": "HC..",
+    "IINST": 1,
+    "IMAX": 1,
+    "PAPP": 170,
+    "HHPHC": 3,
+    "MOTDETAT": 0,
+}
 # NUL_TELEINFO = {
 #     "_UPTIME": "0",
 #     "ADCO": "0",
