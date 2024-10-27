@@ -1,5 +1,9 @@
 """Constants used by the Remora component."""
 
+""" Les constantes pour l'intégration Tuto HACS """
+
+from homeassistant.const import Platform
+
 DOMAIN = "remora"
 PLATFORM: list[Platform] = [Platform.SENSOR, Platform.SERVICE]
 FILPILOTE = "filpilote"
