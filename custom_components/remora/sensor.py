@@ -4,18 +4,36 @@ import logging
 import voluptuous as vol
 
 import homeassistant.helpers.config_validation as cv
+# from homeassistant.const import (
+#     CONF_RESOURCES,
+#     TIME_SECONDS,
+#     TIME_MINUTES,
+#     #UnitOfTime,
+#     ELECTRIC_CURRENT_AMPERE,
+#     #UnitOfElectricCurrent,
+#     ENERGY_WATT_HOUR,
+#     #UnitOfEnergy,
+#     POWER_VOLT_AMPERE,
+#     #UnitOfApparentPower,
+# )
+'''2024-10-27 16:27:44.002 WARNING (ImportExecutor_0) [homeassistant.const] TIME_SECONDS was used from remora, this is a deprecated constant which will be removed in HA Core 2025.1. Use UnitOfTime.SECONDS instead, please report it to the author of the 'remora' custom integration
+2024-10-27 16:27:44.004 WARNING (ImportExecutor_0) [homeassistant.const] TIME_MINUTES was used from remora, this is a deprecated constant which will be removed in HA Core 2025.1. Use UnitOfTime.MINUTES instead, please report it to the author of the 'remora' custom integration
+2024-10-27 16:27:44.006 WARNING (ImportExecutor_0) [homeassistant.const] ELECTRIC_CURRENT_AMPERE was used from remora, this is a deprecated constant which will be removed in HA Core 2025.1. Use UnitOfElectricCurrent.AMPERE instead, please report it to the author of the 'remora' custom integration
+2024-10-27 16:27:44.008 WARNING (ImportExecutor_0) [homeassistant.const] ENERGY_WATT_HOUR was used from remora, this is a deprecated constant which will be removed in HA Core 2025.1. Use UnitOfEnergy.WATT_HOUR instead, please report it to the author of the 'remora' custom integration
+2024-10-27 16:27:44.009 WARNING (ImportExecutor_0) [homeassistant.const] POWER_VOLT_AMPERE was used from remora, this is a deprecated constant which will be removed in HA Core 2025.1. Use UnitOfApparentPower.VOLT_AMPERE instead, please report it to the author of the 'remora' custom integration'''
 from homeassistant.const import (
     CONF_RESOURCES,
-    TIME_SECONDS,
-    TIME_MINUTES,
+    UnitOfTime.SECONDS,
+    UnitOfTime.MINUTES,
     #UnitOfTime,
-    ELECTRIC_CURRENT_AMPERE,
+    UnitOfElectricCurrent.AMPERE,
     #UnitOfElectricCurrent,
-    ENERGY_WATT_HOUR,
+    UnitOfEnergy.WATT_HOUR,
     #UnitOfEnergy,
-    POWER_VOLT_AMPERE,
+    UnitOfApparentPower.VOLT_AMPERE,
     #UnitOfApparentPower,
 )
+
 from homeassistant.components.sensor import (
     SensorDeviceClass,
     SensorEntity,
@@ -40,18 +58,18 @@ SENSOR_TYPES: dict[str, dict[str, str]] = {
         DESCRIPTION: "Adresse du compteur",
         ICON: "mdi:counter"
     },
-    "OPTARIF": {        
+    "OPTARIF": {
         DESCRIPTION: "Option tarifaire choisie",
         ICON: "mdi:mdi-timer-sand",
     },
-    "ISOUSC": {        
+    "ISOUSC": {
         DESCRIPTION: "Intensité souscrite",
         ICON: "mdi:mdi-flash-outline",
         DEVICE_CLASS: SensorDeviceClass.CURRENT,
         #UNIT: UnitOfElectricCurrent.AMPERE
         UNIT: ELECTRIC_CURRENT_AMPERE
     },
-    "BASE": {        
+    "BASE": {
         DESCRIPTION: "Index option Base",
         ICON: "mdi:gauge",
         DEVICE_CLASS: SensorDeviceClass.ENERGY,
@@ -59,7 +77,7 @@ SENSOR_TYPES: dict[str, dict[str, str]] = {
         #UNIT: UnitOfEnergy.WATT_HOUR
         UNIT: ENERGY_WATT_HOUR
     },
-    "HCHC": {        
+    "HCHC": {
         DESCRIPTION: "Index option Heures Creuses",
         ICON: "mdi:gauge",
         DEVICE_CLASS: SensorDeviceClass.ENERGY,
@@ -67,7 +85,7 @@ SENSOR_TYPES: dict[str, dict[str, str]] = {
         #UNIT: UnitOfEnergy.WATT_HOUR
         UNIT: ENERGY_WATT_HOUR
     },
-    "HCHP": {        
+    "HCHP": {
         DESCRIPTION: "Index option Heures Pleines",
         ICON: "mdi:gauge",
         DEVICE_CLASS: SensorDeviceClass.ENERGY,
@@ -75,7 +93,7 @@ SENSOR_TYPES: dict[str, dict[str, str]] = {
         #UNIT: UnitOfEnergy.WATT_HOUR
         UNIT: ENERGY_WATT_HOUR
     },
-    "EJPHN": {        
+    "EJPHN": {
         DESCRIPTION: "Index option Heures Normales",
         ICON: "mdi:gauge",
         DEVICE_CLASS: SensorDeviceClass.ENERGY,
@@ -83,7 +101,7 @@ SENSOR_TYPES: dict[str, dict[str, str]] = {
         #UNIT: UnitOfEnergy.WATT_HOUR
         UNIT: ENERGY_WATT_HOUR
     },
-    "EJPHPM": {        
+    "EJPHPM": {
         DESCRIPTION: "Index option Heures de Pointe Mobile",
         ICON: "mdi:gauge",
         DEVICE_CLASS: SensorDeviceClass.ENERGY,
@@ -91,7 +109,7 @@ SENSOR_TYPES: dict[str, dict[str, str]] = {
         #UNIT: UnitOfEnergy.WATT_HOUR
         UNIT: ENERGY_WATT_HOUR
     },
-    "BBRHCJB": {        
+    "BBRHCJB": {
         DESCRIPTION: "Index option Heures Creuses Jours Bleus",
         ICON: "mdi:gauge",
         DEVICE_CLASS: SensorDeviceClass.ENERGY,
@@ -99,7 +117,7 @@ SENSOR_TYPES: dict[str, dict[str, str]] = {
         #UNIT: UnitOfEnergy.WATT_HOUR
         UNIT: ENERGY_WATT_HOUR
     },
-    "BBRHPJB": {        
+    "BBRHPJB": {
         DESCRIPTION: "Index option Heures Pleines Jours Bleus",
         ICON: "mdi:gauge",
         DEVICE_CLASS: SensorDeviceClass.ENERGY,
@@ -107,7 +125,7 @@ SENSOR_TYPES: dict[str, dict[str, str]] = {
         #UNIT: UnitOfEnergy.WATT_HOUR
         UNIT: ENERGY_WATT_HOUR
     },
-    "BBRHCJW": {        
+    "BBRHCJW": {
         DESCRIPTION: "Index option Heures Creuses Jours Blancs",
         ICON: "mdi:gauge",
         DEVICE_CLASS: SensorDeviceClass.ENERGY,
@@ -115,7 +133,7 @@ SENSOR_TYPES: dict[str, dict[str, str]] = {
         #UNIT: UnitOfEnergy.WATT_HOUR
         UNIT: ENERGY_WATT_HOUR
     },
-    "BBRHPJW": {        
+    "BBRHPJW": {
         DESCRIPTION: "Index option Heures Pleines Jours Blancs",
         ICON: "mdi:gauge",
         DEVICE_CLASS: SensorDeviceClass.ENERGY,
@@ -123,7 +141,7 @@ SENSOR_TYPES: dict[str, dict[str, str]] = {
         #UNIT: UnitOfEnergy.WATT_HOUR
         UNIT: ENERGY_WATT_HOUR
     },
-    "BBRHCJR": {        
+    "BBRHCJR": {
         DESCRIPTION: "Index option Heures Creuses Jours Rouges",
         ICON: "mdi:gauge",
         DEVICE_CLASS: SensorDeviceClass.ENERGY,
@@ -131,7 +149,7 @@ SENSOR_TYPES: dict[str, dict[str, str]] = {
         #UNIT: UnitOfEnergy.WATT_HOUR
         UNIT: ENERGY_WATT_HOUR
     },
-    "BBRHPJR": {        
+    "BBRHPJR": {
         DESCRIPTION: "Index option Heures Pleines Jours Rouges",
         ICON: "mdi:gauge",
         DEVICE_CLASS: SensorDeviceClass.ENERGY,
@@ -139,22 +157,22 @@ SENSOR_TYPES: dict[str, dict[str, str]] = {
         #UNIT: UnitOfEnergy.WATT_HOUR
         UNIT: ENERGY_WATT_HOUR
     },
-    "PEJP": {        
+    "PEJP": {
         DESCRIPTION: "Préavis Début EJP (30 min)",
         ICON: "mdi:counter",
         DEVICE_CLASS: SensorDeviceClass.DURATION,
         #UNIT: UnitOfTime.MINUTES
         UNIT: TIME_MINUTES
     },
-    "PTEC": {        
+    "PTEC": {
         DESCRIPTION: "Période Tarifaire en cours",
         ICON: "mdi:chart-timeline"
     },
-    "DEMAIN": {        
+    "DEMAIN": {
         DESCRIPTION: "Couleur du lendemain",
         ICON: "mdi:counter"
     },
-    "IINST": {        
+    "IINST": {
         DESCRIPTION: "Intensité instantanée",
         ICON: "mdi:flash",
         DEVICE_CLASS: SensorDeviceClass.CURRENT,
@@ -162,21 +180,21 @@ SENSOR_TYPES: dict[str, dict[str, str]] = {
         #UNIT: UnitOfElectricCurrent.AMPERE
         UNIT: ELECTRIC_CURRENT_AMPERE
     },
-    "ADPS": {        
+    "ADPS": {
         DESCRIPTION: "Avertissement de Dépassement De Puissance Souscrite",
         ICON: "mdi:mdi-flash-red-eye",
         DEVICE_CLASS: SensorDeviceClass.CURRENT,
         #UNIT: UnitOfElectricCurrent.AMPERE
         UNIT: ELECTRIC_CURRENT_AMPERE
     },
-    "IMAX": {        
+    "IMAX": {
         DESCRIPTION: "Intensité maximale",
         ICON: "mdi:mdi-flash-red-eye",
         DEVICE_CLASS: SensorDeviceClass.CURRENT,
         #UNIT: UnitOfElectricCurrent.AMPERE
         UNIT: ELECTRIC_CURRENT_AMPERE
     },
-    "PAPP": {        
+    "PAPP": {
         DESCRIPTION: "Puissance apparente",
         ICON: "mdi:flash",
         DEVICE_CLASS: SensorDeviceClass.APPARENT_POWER,
@@ -184,7 +202,7 @@ SENSOR_TYPES: dict[str, dict[str, str]] = {
         #UNIT: UnitOfApparentPower.VOLT_AMPERE
         UNIT: POWER_VOLT_AMPERE
     },
-    "HHPHC": {        
+    "HHPHC": {
         DESCRIPTION: "Horaire Heures Pleines Heures Creuses",
         ICON: "mdi:counter"
     }
@@ -253,7 +271,7 @@ class RemoraTeleInfoSensor(SensorEntity):
     @property
     def state_class(self) -> str | None:
         return self._state_class
-        
+
     @property
     def native_unit_of_measurement(self) -> str | None:
         return self._unit
@@ -261,7 +279,7 @@ class RemoraTeleInfoSensor(SensorEntity):
     @property
     def suggested_unit_of_measurement(self) -> str | None:
         return self._unit
-        
+
     async def async_update(self) -> None:
         """Get the latest status and use it to update our sensor state."""
         await self._remora.async_updateTeleInfo()
