@@ -1,9 +1,11 @@
 """Support for Remora TeleInfo sensor."""
+
 import asyncio
 import logging
 import voluptuous as vol
 
 import homeassistant.helpers.config_validation as cv
+
 # from homeassistant.const import (
 #     CONF_RESOURCES,
 #     TIME_SECONDS,
@@ -16,22 +18,17 @@ import homeassistant.helpers.config_validation as cv
 #     POWER_VOLT_AMPERE,
 #     #UnitOfApparentPower,
 # )
-'''2024-10-27 16:27:44.002 WARNING (ImportExecutor_0) [homeassistant.const] TIME_SECONDS was used from remora, this is a deprecated constant which will be removed in HA Core 2025.1. Use UnitOfTime.SECONDS instead, please report it to the author of the 'remora' custom integration
+"""2024-10-27 16:27:44.002 WARNING (ImportExecutor_0) [homeassistant.const] TIME_SECONDS was used from remora, this is a deprecated constant which will be removed in HA Core 2025.1. Use UnitOfTime.SECONDS instead, please report it to the author of the 'remora' custom integration
 2024-10-27 16:27:44.004 WARNING (ImportExecutor_0) [homeassistant.const] TIME_MINUTES was used from remora, this is a deprecated constant which will be removed in HA Core 2025.1. Use UnitOfTime.MINUTES instead, please report it to the author of the 'remora' custom integration
 2024-10-27 16:27:44.006 WARNING (ImportExecutor_0) [homeassistant.const] ELECTRIC_CURRENT_AMPERE was used from remora, this is a deprecated constant which will be removed in HA Core 2025.1. Use UnitOfElectricCurrent.AMPERE instead, please report it to the author of the 'remora' custom integration
 2024-10-27 16:27:44.008 WARNING (ImportExecutor_0) [homeassistant.const] ENERGY_WATT_HOUR was used from remora, this is a deprecated constant which will be removed in HA Core 2025.1. Use UnitOfEnergy.WATT_HOUR instead, please report it to the author of the 'remora' custom integration
-2024-10-27 16:27:44.009 WARNING (ImportExecutor_0) [homeassistant.const] POWER_VOLT_AMPERE was used from remora, this is a deprecated constant which will be removed in HA Core 2025.1. Use UnitOfApparentPower.VOLT_AMPERE instead, please report it to the author of the 'remora' custom integration'''
+2024-10-27 16:27:44.009 WARNING (ImportExecutor_0) [homeassistant.const] POWER_VOLT_AMPERE was used from remora, this is a deprecated constant which will be removed in HA Core 2025.1. Use UnitOfApparentPower.VOLT_AMPERE instead, please report it to the author of the 'remora' custom integration"""
 from homeassistant.const import (
     CONF_RESOURCES,
-    UnitOfTime.SECONDS,
-    UnitOfTime.MINUTES,
-    #UnitOfTime,
-    UnitOfElectricCurrent.AMPERE,
-    #UnitOfElectricCurrent,
-    UnitOfEnergy.WATT_HOUR,
-    #UnitOfEnergy,
-    UnitOfApparentPower.VOLT_AMPERE,
-    #UnitOfApparentPower,
+    UnitOfTime,
+    UnitOfElectricCurrent,
+    UnitOfEnergy,
+    UnitOfApparentPower,
 )
 
 from homeassistant.components.sensor import (
@@ -54,10 +51,7 @@ DESCRIPTION = "description"
 ICON = "icon"
 UNIT = "unit"
 SENSOR_TYPES: dict[str, dict[str, str]] = {
-    "ADCO": {
-        DESCRIPTION: "Adresse du compteur",
-        ICON: "mdi:counter"
-    },
+    "ADCO": {DESCRIPTION: "Adresse du compteur", ICON: "mdi:counter"},
     "OPTARIF": {
         DESCRIPTION: "Option tarifaire choisie",
         ICON: "mdi:mdi-timer-sand",
@@ -66,146 +60,140 @@ SENSOR_TYPES: dict[str, dict[str, str]] = {
         DESCRIPTION: "Intensité souscrite",
         ICON: "mdi:mdi-flash-outline",
         DEVICE_CLASS: SensorDeviceClass.CURRENT,
-        #UNIT: UnitOfElectricCurrent.AMPERE
-        UNIT: ELECTRIC_CURRENT_AMPERE
+        # UNIT: UnitOfElectricCurrent.AMPERE
+        UNIT: ELECTRIC_CURRENT_AMPERE,
     },
     "BASE": {
         DESCRIPTION: "Index option Base",
         ICON: "mdi:gauge",
         DEVICE_CLASS: SensorDeviceClass.ENERGY,
         STATE_CLASS: SensorStateClass.TOTAL,
-        #UNIT: UnitOfEnergy.WATT_HOUR
-        UNIT: ENERGY_WATT_HOUR
+        # UNIT: UnitOfEnergy.WATT_HOUR
+        UNIT: ENERGY_WATT_HOUR,
     },
     "HCHC": {
         DESCRIPTION: "Index option Heures Creuses",
         ICON: "mdi:gauge",
         DEVICE_CLASS: SensorDeviceClass.ENERGY,
         STATE_CLASS: SensorStateClass.TOTAL,
-        #UNIT: UnitOfEnergy.WATT_HOUR
-        UNIT: ENERGY_WATT_HOUR
+        # UNIT: UnitOfEnergy.WATT_HOUR
+        UNIT: ENERGY_WATT_HOUR,
     },
     "HCHP": {
         DESCRIPTION: "Index option Heures Pleines",
         ICON: "mdi:gauge",
         DEVICE_CLASS: SensorDeviceClass.ENERGY,
         STATE_CLASS: SensorStateClass.TOTAL,
-        #UNIT: UnitOfEnergy.WATT_HOUR
-        UNIT: ENERGY_WATT_HOUR
+        # UNIT: UnitOfEnergy.WATT_HOUR
+        UNIT: ENERGY_WATT_HOUR,
     },
     "EJPHN": {
         DESCRIPTION: "Index option Heures Normales",
         ICON: "mdi:gauge",
         DEVICE_CLASS: SensorDeviceClass.ENERGY,
         STATE_CLASS: SensorStateClass.TOTAL,
-        #UNIT: UnitOfEnergy.WATT_HOUR
-        UNIT: ENERGY_WATT_HOUR
+        # UNIT: UnitOfEnergy.WATT_HOUR
+        UNIT: ENERGY_WATT_HOUR,
     },
     "EJPHPM": {
         DESCRIPTION: "Index option Heures de Pointe Mobile",
         ICON: "mdi:gauge",
         DEVICE_CLASS: SensorDeviceClass.ENERGY,
         STATE_CLASS: SensorStateClass.TOTAL,
-        #UNIT: UnitOfEnergy.WATT_HOUR
-        UNIT: ENERGY_WATT_HOUR
+        # UNIT: UnitOfEnergy.WATT_HOUR
+        UNIT: ENERGY_WATT_HOUR,
     },
     "BBRHCJB": {
         DESCRIPTION: "Index option Heures Creuses Jours Bleus",
         ICON: "mdi:gauge",
         DEVICE_CLASS: SensorDeviceClass.ENERGY,
         STATE_CLASS: SensorStateClass.TOTAL,
-        #UNIT: UnitOfEnergy.WATT_HOUR
-        UNIT: ENERGY_WATT_HOUR
+        # UNIT: UnitOfEnergy.WATT_HOUR
+        UNIT: ENERGY_WATT_HOUR,
     },
     "BBRHPJB": {
         DESCRIPTION: "Index option Heures Pleines Jours Bleus",
         ICON: "mdi:gauge",
         DEVICE_CLASS: SensorDeviceClass.ENERGY,
         STATE_CLASS: SensorStateClass.TOTAL,
-        #UNIT: UnitOfEnergy.WATT_HOUR
-        UNIT: ENERGY_WATT_HOUR
+        # UNIT: UnitOfEnergy.WATT_HOUR
+        UNIT: ENERGY_WATT_HOUR,
     },
     "BBRHCJW": {
         DESCRIPTION: "Index option Heures Creuses Jours Blancs",
         ICON: "mdi:gauge",
         DEVICE_CLASS: SensorDeviceClass.ENERGY,
         STATE_CLASS: SensorStateClass.TOTAL,
-        #UNIT: UnitOfEnergy.WATT_HOUR
-        UNIT: ENERGY_WATT_HOUR
+        # UNIT: UnitOfEnergy.WATT_HOUR
+        UNIT: ENERGY_WATT_HOUR,
     },
     "BBRHPJW": {
         DESCRIPTION: "Index option Heures Pleines Jours Blancs",
         ICON: "mdi:gauge",
         DEVICE_CLASS: SensorDeviceClass.ENERGY,
         STATE_CLASS: SensorStateClass.TOTAL,
-        #UNIT: UnitOfEnergy.WATT_HOUR
-        UNIT: ENERGY_WATT_HOUR
+        # UNIT: UnitOfEnergy.WATT_HOUR
+        UNIT: ENERGY_WATT_HOUR,
     },
     "BBRHCJR": {
         DESCRIPTION: "Index option Heures Creuses Jours Rouges",
         ICON: "mdi:gauge",
         DEVICE_CLASS: SensorDeviceClass.ENERGY,
         STATE_CLASS: SensorStateClass.TOTAL,
-        #UNIT: UnitOfEnergy.WATT_HOUR
-        UNIT: ENERGY_WATT_HOUR
+        # UNIT: UnitOfEnergy.WATT_HOUR
+        UNIT: ENERGY_WATT_HOUR,
     },
     "BBRHPJR": {
         DESCRIPTION: "Index option Heures Pleines Jours Rouges",
         ICON: "mdi:gauge",
         DEVICE_CLASS: SensorDeviceClass.ENERGY,
         STATE_CLASS: SensorStateClass.TOTAL,
-        #UNIT: UnitOfEnergy.WATT_HOUR
-        UNIT: ENERGY_WATT_HOUR
+        # UNIT: UnitOfEnergy.WATT_HOUR
+        UNIT: ENERGY_WATT_HOUR,
     },
     "PEJP": {
         DESCRIPTION: "Préavis Début EJP (30 min)",
         ICON: "mdi:counter",
         DEVICE_CLASS: SensorDeviceClass.DURATION,
-        #UNIT: UnitOfTime.MINUTES
-        UNIT: TIME_MINUTES
+        # UNIT: UnitOfTime.MINUTES
+        UNIT: TIME_MINUTES,
     },
-    "PTEC": {
-        DESCRIPTION: "Période Tarifaire en cours",
-        ICON: "mdi:chart-timeline"
-    },
-    "DEMAIN": {
-        DESCRIPTION: "Couleur du lendemain",
-        ICON: "mdi:counter"
-    },
+    "PTEC": {DESCRIPTION: "Période Tarifaire en cours", ICON: "mdi:chart-timeline"},
+    "DEMAIN": {DESCRIPTION: "Couleur du lendemain", ICON: "mdi:counter"},
     "IINST": {
         DESCRIPTION: "Intensité instantanée",
         ICON: "mdi:flash",
         DEVICE_CLASS: SensorDeviceClass.CURRENT,
         STATE_CLASS: SensorStateClass.MEASUREMENT,
-        #UNIT: UnitOfElectricCurrent.AMPERE
-        UNIT: ELECTRIC_CURRENT_AMPERE
+        # UNIT: UnitOfElectricCurrent.AMPERE
+        UNIT: ELECTRIC_CURRENT_AMPERE,
     },
     "ADPS": {
         DESCRIPTION: "Avertissement de Dépassement De Puissance Souscrite",
         ICON: "mdi:mdi-flash-red-eye",
         DEVICE_CLASS: SensorDeviceClass.CURRENT,
-        #UNIT: UnitOfElectricCurrent.AMPERE
-        UNIT: ELECTRIC_CURRENT_AMPERE
+        # UNIT: UnitOfElectricCurrent.AMPERE
+        UNIT: ELECTRIC_CURRENT_AMPERE,
     },
     "IMAX": {
         DESCRIPTION: "Intensité maximale",
         ICON: "mdi:mdi-flash-red-eye",
         DEVICE_CLASS: SensorDeviceClass.CURRENT,
-        #UNIT: UnitOfElectricCurrent.AMPERE
-        UNIT: ELECTRIC_CURRENT_AMPERE
+        # UNIT: UnitOfElectricCurrent.AMPERE
+        UNIT: ELECTRIC_CURRENT_AMPERE,
     },
     "PAPP": {
         DESCRIPTION: "Puissance apparente",
         ICON: "mdi:flash",
         DEVICE_CLASS: SensorDeviceClass.APPARENT_POWER,
         STATE_CLASS: SensorStateClass.MEASUREMENT,
-        #UNIT: UnitOfApparentPower.VOLT_AMPERE
-        UNIT: POWER_VOLT_AMPERE
+        # UNIT: UnitOfApparentPower.VOLT_AMPERE
+        UNIT: POWER_VOLT_AMPERE,
     },
     "HHPHC": {
         DESCRIPTION: "Horaire Heures Pleines Heures Creuses",
-        ICON: "mdi:counter"
-    }
+        ICON: "mdi:counter",
+    },
 }
 
 
@@ -242,11 +230,11 @@ class RemoraTeleInfoSensor(SensorEntity):
         """Initialize the sensor."""
         self._remora = remora
         self.type = sensor_type
-        self._name = SENSOR_PREFIX + SENSOR_TYPES.get( self.type , {}).get(DESCRIPTION)
-        self._icon = SENSOR_TYPES.get( self.type, {}).get(ICON)
-        self._device_class = SENSOR_TYPES.get( self.type, {}).get(DEVICE_CLASS)
-        self._state_class = SENSOR_TYPES.get( self.type, {}).get(STATE_CLASS)
-        self._unit = SENSOR_TYPES.get( self.type, {}).get(UNIT)
+        self._name = SENSOR_PREFIX + SENSOR_TYPES.get(self.type, {}).get(DESCRIPTION)
+        self._icon = SENSOR_TYPES.get(self.type, {}).get(ICON)
+        self._device_class = SENSOR_TYPES.get(self.type, {}).get(DEVICE_CLASS)
+        self._state_class = SENSOR_TYPES.get(self.type, {}).get(STATE_CLASS)
+        self._unit = SENSOR_TYPES.get(self.type, {}).get(UNIT)
         self._state = None
 
     @property

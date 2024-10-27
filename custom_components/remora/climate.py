@@ -17,11 +17,8 @@ from homeassistant.components.climate import PLATFORM_SCHEMA, ClimateEntity
 2024-10-27 16:27:43.991 WARNING (ImportExecutor_0) [homeassistant.components.climate.const] SUPPORT_PRESET_MODE was used from remora, this is a deprecated constant which will be removed in HA Core 2025.1. Use ClimateEntityFeature.PRESET_MODE instead, please report it to the author of the 'remora' custom integration
 '''
 from homeassistant.components.climate.const import (
-    HVACMode.COOL,
-    HVACMode.HEAT,
-    HVACMode.HEAT_COOL,
-    HVACMode.OFF,
-    ClimateEntityFeature.PRESET_MODE,
+    HVACMode,
+    ClimateEntityFeature
 )
 
 # from homeassistant.const import CONF_NAME, TEMP_CELSIUS
