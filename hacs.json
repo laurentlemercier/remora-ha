@@ -1,7 +1,5 @@
 {
     "name": "remora",
     "hacs": "2.0.1",
-    "homeassistant": "2024.10",
-    "domains": [ "sensor", "switch", "climate"],
-    "iot_class": "local_polling"
+    "homeassistant": "2024.10"
   }
