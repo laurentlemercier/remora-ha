@@ -5,7 +5,7 @@
 from homeassistant.const import Platform
 
 DOMAIN = "remora"
-PLATFORM: list[Platform] = [Platform.SENSOR, Platform.SERVICE]
+PLATFORM: list[Platform] = [Platform.SENSOR, Platform.BINARY_SENSOR, Platform.CLIMATE s]
 FILPILOTE = "filpilote"
 FP = "fp"
 RELAIS = "relais"
