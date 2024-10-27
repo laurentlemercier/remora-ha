@@ -68,7 +68,7 @@ SENSOR_TYPES: dict[str, dict[str, str]] = {
         ICON: "mdi:gauge",
         DEVICE_CLASS: SensorDeviceClass.ENERGY,
         STATE_CLASS: SensorStateClass.TOTAL,
-        UNIT: UnitOfEnergy.WATT_HOUR,
+        UNIT: UnitOfEnergy.KILO_WATT_HOUR,
         # UNIT: ENERGY_WATT_HOUR,
     },
     "HCHC": {
@@ -76,7 +76,7 @@ SENSOR_TYPES: dict[str, dict[str, str]] = {
         ICON: "mdi:gauge",
         DEVICE_CLASS: SensorDeviceClass.ENERGY,
         STATE_CLASS: SensorStateClass.TOTAL,
-        UNIT: UnitOfEnergy.WATT_HOUR,
+        UNIT: UnitOfEnergy.KILO_WATT_HOUR,
         # UNIT: ENERGY_WATT_HOUR,
     },
     "HCHP": {
@@ -84,7 +84,7 @@ SENSOR_TYPES: dict[str, dict[str, str]] = {
         ICON: "mdi:gauge",
         DEVICE_CLASS: SensorDeviceClass.ENERGY,
         STATE_CLASS: SensorStateClass.TOTAL,
-        UNIT: UnitOfEnergy.WATT_HOUR,
+        UNIT: UnitOfEnergy.KILO_WATT_HOUR,
         # UNIT: ENERGY_WATT_HOUR,
     },
     "EJPHN": {
@@ -92,7 +92,7 @@ SENSOR_TYPES: dict[str, dict[str, str]] = {
         ICON: "mdi:gauge",
         DEVICE_CLASS: SensorDeviceClass.ENERGY,
         STATE_CLASS: SensorStateClass.TOTAL,
-        UNIT: UnitOfEnergy.WATT_HOUR,
+        UNIT: UnitOfEnergy.KILO_WATT_HOUR,
         # UNIT: ENERGY_WATT_HOUR,
     },
     "EJPHPM": {
@@ -100,7 +100,7 @@ SENSOR_TYPES: dict[str, dict[str, str]] = {
         ICON: "mdi:gauge",
         DEVICE_CLASS: SensorDeviceClass.ENERGY,
         STATE_CLASS: SensorStateClass.TOTAL,
-        UNIT: UnitOfEnergy.WATT_HOUR,
+        UNIT: UnitOfEnergy.KILO_WATT_HOUR,
         # UNIT: ENERGY_WATT_HOUR,
     },
     "BBRHCJB": {
@@ -108,7 +108,7 @@ SENSOR_TYPES: dict[str, dict[str, str]] = {
         ICON: "mdi:gauge",
         DEVICE_CLASS: SensorDeviceClass.ENERGY,
         STATE_CLASS: SensorStateClass.TOTAL,
-        UNIT: UnitOfEnergy.WATT_HOUR,
+        UNIT: UnitOfEnergy.KILO_WATT_HOUR,
         # UNIT: ENERGY_WATT_HOUR,
     },
     "BBRHPJB": {
@@ -116,7 +116,7 @@ SENSOR_TYPES: dict[str, dict[str, str]] = {
         ICON: "mdi:gauge",
         DEVICE_CLASS: SensorDeviceClass.ENERGY,
         STATE_CLASS: SensorStateClass.TOTAL,
-        UNIT: UnitOfEnergy.WATT_HOUR,
+        UNIT: UnitOfEnergy.KILO_WATT_HOUR,
         # UNIT: ENERGY_WATT_HOUR,
     },
     "BBRHCJW": {
@@ -124,7 +124,7 @@ SENSOR_TYPES: dict[str, dict[str, str]] = {
         ICON: "mdi:gauge",
         DEVICE_CLASS: SensorDeviceClass.ENERGY,
         STATE_CLASS: SensorStateClass.TOTAL,
-        UNIT: UnitOfEnergy.WATT_HOUR,
+        UNIT: UnitOfEnergy.KILO_WATT_HOUR,
         # UNIT: ENERGY_WATT_HOUR,
     },
     "BBRHPJW": {
@@ -132,7 +132,7 @@ SENSOR_TYPES: dict[str, dict[str, str]] = {
         ICON: "mdi:gauge",
         DEVICE_CLASS: SensorDeviceClass.ENERGY,
         STATE_CLASS: SensorStateClass.TOTAL,
-        UNIT: UnitOfEnergy.WATT_HOUR,
+        UNIT: UnitOfEnergy.KILO_WATT_HOUR,
         # UNIT: ENERGY_WATT_HOUR,
     },
     "BBRHCJR": {
@@ -140,7 +140,7 @@ SENSOR_TYPES: dict[str, dict[str, str]] = {
         ICON: "mdi:gauge",
         DEVICE_CLASS: SensorDeviceClass.ENERGY,
         STATE_CLASS: SensorStateClass.TOTAL,
-        UNIT: UnitOfEnergy.WATT_HOUR,
+        UNIT: UnitOfEnergy.KILO_WATT_HOUR,
         # UNIT: ENERGY_WATT_HOUR,
     },
     "BBRHPJR": {
@@ -148,7 +148,7 @@ SENSOR_TYPES: dict[str, dict[str, str]] = {
         ICON: "mdi:gauge",
         DEVICE_CLASS: SensorDeviceClass.ENERGY,
         STATE_CLASS: SensorStateClass.TOTAL,
-        UNIT: UnitOfEnergy.WATT_HOUR,
+        UNIT: UnitOfEnergy.KILO_WATT_HOUR,
         # UNIT: ENERGY_WATT_HOUR,
     },
     "PEJP": {
