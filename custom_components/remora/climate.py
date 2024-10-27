@@ -31,10 +31,14 @@ from .const import CONF_TEMP_SENSOR, DOMAIN, FILPILOTE, FNCT_RELAIS, FP, RELAIS
 _LOGGER = logging.getLogger(__name__)
 
 REMORA_FP_PRESET_MODES_TO_HVAC_MODE = {
-    remora.FpMode.Arrêt.name: HVAC_MODE_OFF,
-    remora.FpMode.HorsGel.name: HVAC_MODE_COOL,
-    remora.FpMode.Eco.name: HVAC_MODE_HEAT_COOL,
-    remora.FpMode.Confort.name: HVAC_MODE_HEAT,
+    remora.FpMode.Arrêt.name: HVACMode.OFF,
+    remora.FpMode.HorsGel.name: HVACMode.COOL,
+    remora.FpMode.Eco.name: HVACMode.HEAT_COOL,
+    remora.FpMode.Confort.name: HVACMode.HEAT,
+    # remora.FpMode.Arrêt.name: HVAC_MODE_OFF,
+    # remora.FpMode.HorsGel.name: HVAC_MODE_COOL,
+    # remora.FpMode.Eco.name: HVAC_MODE_HEAT_COOL,
+    # remora.FpMode.Confort.name: HVAC_MODE_HEAT,
 }
 
 REMORA_RELAIS_ETAT_TO_HVAC_MODE = {
