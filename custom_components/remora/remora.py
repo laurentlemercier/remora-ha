@@ -1,6 +1,7 @@
 from datetime import timedelta
 
 from homeassistant.util import Throttle
+from .const import NUL_TELEINFO
 
 MIN_TIME_BETWEEN_UPDATES_REMORA_SENSOR = timedelta(seconds=5)
 MIN_TIME_BETWEEN_UPDATES_REMORA_CLIMATE = timedelta(seconds=2)
