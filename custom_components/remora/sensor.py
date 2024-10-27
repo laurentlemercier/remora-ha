@@ -172,7 +172,8 @@ SENSOR_TYPES: dict[str, dict[str, str]] = {
         DESCRIPTION: "Avertissement de Dépassement De Puissance Souscrite",
         ICON: "mdi:mdi-flash-red-eye",
         DEVICE_CLASS: SensorDeviceClass.CURRENT,
-        UNIT: UnitOfElectricCurrent.AMPERE,
+        # UNIT: UnitOfElectricCurrent.AMPERE,
+        UNIT: UnitOfApparentPower.VOLT_AMPERE,
         # UNIT: ELECTRIC_CURRENT_AMPERE,
     },
     "IMAX": {
