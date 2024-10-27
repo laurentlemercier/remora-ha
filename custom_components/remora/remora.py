@@ -38,7 +38,12 @@ class RemoraDevice:
 
     async def async_get_TeleInfo(self) -> dict:
         """Get the status from Remora TeleInfo and return it as a dict."""
-        return await self._remora.getTeleInfo()!==None
+        teleinfo = await self._remora.getTeleInfo()
+        if teleinfo!=None
+           return teleinfo
+        else
+           return NUL_TELEINFO
+        # return await self._remora.getTeleInfo()!==None
 
     @Throttle(MIN_TIME_BETWEEN_UPDATES_REMORA_SENSOR)
     async def async_updateTeleInfo(self, **kwargs) -> None:
