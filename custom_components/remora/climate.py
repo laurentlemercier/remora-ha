@@ -3,6 +3,7 @@ import voluptuous as vol
 
 import homeassistant.helpers.config_validation as cv
 from homeassistant.components.climate import PLATFORM_SCHEMA, ClimateEntity
+
 # from homeassistant.components.climate.const import (
 #     HVAC_MODE_COOL,
 #     HVAC_MODE_HEAT,
@@ -10,19 +11,16 @@ from homeassistant.components.climate import PLATFORM_SCHEMA, ClimateEntity
 #     HVAC_MODE_OFF,
 #     SUPPORT_PRESET_MODE,
 # )
-'''2024-10-27 16:27:43.986 WARNING (ImportExecutor_0) [homeassistant.components.climate.const] HVAC_MODE_COOL was used from remora, this is a deprecated constant which will be removed in HA Core 2025.1. Use HVACMode.COOL instead, please report it to the author of the 'remora' custom integration
+"""2024-10-27 16:27:43.986 WARNING (ImportExecutor_0) [homeassistant.components.climate.const] HVAC_MODE_COOL was used from remora, this is a deprecated constant which will be removed in HA Core 2025.1. Use HVACMode.COOL instead, please report it to the author of the 'remora' custom integration
 2024-10-27 16:27:43.988 WARNING (ImportExecutor_0) [homeassistant.components.climate.const] HVAC_MODE_HEAT was used from remora, this is a deprecated constant which will be removed in HA Core 2025.1. Use HVACMode.HEAT instead, please report it to the author of the 'remora' custom integration
 2024-10-27 16:27:43.989 WARNING (ImportExecutor_0) [homeassistant.components.climate.const] HVAC_MODE_HEAT_COOL was used from remora, this is a deprecated constant which will be removed in HA Core 2025.1. Use HVACMode.HEAT_COOL instead, please report it to the author of the 'remora' custom integration
 2024-10-27 16:27:43.990 WARNING (ImportExecutor_0) [homeassistant.components.climate.const] HVAC_MODE_OFF was used from remora, this is a deprecated constant which will be removed in HA Core 2025.1. Use HVACMode.OFF instead, please report it to the author of the 'remora' custom integration
 2024-10-27 16:27:43.991 WARNING (ImportExecutor_0) [homeassistant.components.climate.const] SUPPORT_PRESET_MODE was used from remora, this is a deprecated constant which will be removed in HA Core 2025.1. Use ClimateEntityFeature.PRESET_MODE instead, please report it to the author of the 'remora' custom integration
-'''
-from homeassistant.components.climate.const import (
-    HVACMode,
-    ClimateEntityFeature
-)
+"""
+from homeassistant.components.climate.const import HVACMode, ClimateEntityFeature
 
 # from homeassistant.const import CONF_NAME, TEMP_CELSIUS
-from homeassistant.const import CONF_NAME, UnitOfTemperature.CELSIUS
+from homeassistant.const import CONF_NAME, UnitOfTemperature
 from homeassistant.core import callback
 from homeassistant.helpers.event import async_track_state_change
 
@@ -234,7 +232,6 @@ class RemoraRelaisClimate(ClimateEntity):
     def supported_features(self) -> int:
         """Return the list of supported features."""
         return ClimateEntityFeature.PRESET_MODE
-
 
     async def async_set_hvac_mode(self, hvac_mode) -> None:
         eMode = [
